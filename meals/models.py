@@ -12,5 +12,5 @@ class Meal(models.Model):
 
 class MealIngredient(models.Model):
     meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
-    quantity_used_g = models.IntegerField()
+    quantity_used_g = models.FloatField(null=True)
     master_item_info = models.ForeignKey(MasterItemInfo, on_delete=models.CASCADE)
