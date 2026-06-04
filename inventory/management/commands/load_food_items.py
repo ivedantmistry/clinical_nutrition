@@ -1,3 +1,5 @@
+# AI Generated Script, use with caution
+
 import json
 import os
 from django.core.management.base import BaseCommand
