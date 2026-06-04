@@ -12,8 +12,10 @@ from .serializers import (
 
 class InventoryViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = Inventory.objects.all()
     serializer_class = InventorySerializer
+
+    def get_queryset(self):
+        return Inventory.objects.filter(user=self.request.user)
 
 
 class MasterItemInfoViewset(viewsets.ModelViewSet):
