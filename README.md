@@ -1,6 +1,6 @@
 # Clinical Nutrition
 
-An open-source **Closed-Loop Clinical Nutrition Tool** designed for patients with chronic kidney disease (CKD), kidney transplant recipients, and other patients with strict dietary needs.
+**An open-source Closed-Loop Clinical Nutrition Tool** for patients with **any strict dietary constraints** (CKD, diabetes, heart conditions, post-transplant, allergies, etc.).
 
 Built with love and personal experience after my own kidney transplant at 19 and moving from India to Germany for my Master's.
 
@@ -8,54 +8,137 @@ Built with love and personal experience after my own kidney transplant at 19 and
 
 ## The Problem
 
-Managing precise nutritional limits (potassium, sodium, phosphorus, protein, etc.) is extremely difficult. Manual tracking is error-prone, and most apps don't respect real medical constraints or actual inventory/pantry at home.
+Managing precise nutritional limits (potassium, sodium, phosphorus, protein, water, sugar, etc.) is extremely difficult. Manual tracking is error-prone, and most apps don't respect real medical constraints or patients' actual home pantry/inventory.
 
 ## The Solution
 
-**Clinical Nutrition** is a multi-tenant platform that creates a tight feedback loop between:
-- **Clinicians** (Dietitians & Nephrologists) who set medical constraints
-- **Patients** who manage their real pantry inventory
-- **Smart recommendations** that only suggest meals possible with available ingredients while staying strictly within prescribed limits
+**Clinical Nutrition** creates a tight feedback loop between:
+
+* **Clinicians** (Dietitians & Doctors) who set personalized medical constraints
+* **Patients** who manage their real pantry inventory
+* **Smart recommendations** that suggest only feasible meals within limits
 
 ## Core Features (In Progress)
 
-- Virtual Pantry management (manual entry + planned OCR receipt scanning)
-- Normalized nutritional database (BLS / FDC integration)
-- Automatic nutrient calculation for meals
-- Doctor/clinician dashboard for monitoring vitals
-- Inventory-based recipe suggestions
+* Virtual Pantry management (manual + planned OCR receipt scanning)
+* Normalized nutritional database (BLS / USDA FDC)
+* Automatic nutrient calculation for meals & recipes
+* Clinician dashboard for patient monitoring
+* Inventory-aware meal suggestions
+* Multi-tenant support (multiple patients per clinician)
 
 ## Tech Stack
 
-- **Backend**: Django, Django Rest Framework
-- **Frontend**: Next.js, TailwindCSS and ShadCN/UI
-- **Database**: PostgreSQL
-- **Nutrition Data**: BLS (Bundeslebensmittelschlüssel)
+* **Backend**: Django + Django Rest Framework
+* **Frontend**: Next.js, Tailwind CSS, ShadCN/UI (coming soon)
+* **Database**: PostgreSQL
+* **Authentication**: JWT
+* **Nutrition Data**: BLS (German) + planned broader sources
 
 ## Project Status
 
-**Phase 1 (Current)**: As of June 4th, 2026 core data models and nutrient calculation logic completed. Testing is remaning.
+**Phase 1 (Current - June 2026)**: Core data models (inventory, meals, users) + nutrient calculation logic completed. Testing in progress.
 
-See `inventory/models.py` and `meals/models.py`.
+See `inventory/models.py`, `meals/models.py`, and `core/` for backend foundation.
+
+---
+
+## Getting Started (Local Development)
+
+### Prerequisites
+
+* Python 3.11+
+* PostgreSQL (or use SQLite for quick testing)
+* Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/ivedantmistry/clinical_nutrition.git
+cd clinical_nutrition
+git checkout v1   # Current active branch
+```
+
+### 2. Setup Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate    # On Windows: venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Environment Variables
+
+```bash
+cp .env.template .env
+# Edit .env with your settings (SECRET_KEY, DB credentials, etc.)
+```
+
+### 5. Database Setup
+
+```bash
+# Create a PostgreSQL database (or use SQLite by updating settings)
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Load Initial Nutrition Data (if available)
+
+```bash
+# Example for master items
+python manage.py load_master_data   # (if you create this command later)
+```
+
+### 7. Create Superuser (for testing clinician side)
+
+```bash
+python manage.py createsuperuser
+```
+
+### 8. Run the Development Server
+
+```bash
+python manage.py runserver
+```
+
+Visit `http://127.0.0.1:8000/admin/` or the API endpoints.
+
+**Frontend (planned)**: Will be added as a `frontend/` folder with Next.js.
+
+---
+
+## Discord Community
+
+Join our Discord for discussions, support, and collaboration:
+
+https://discord.gg/h43PthCH56
+
+---
 
 ## How to Contribute
 
-This is a **community-driven open source project**.
+This is a **community-driven open source project**. Read our `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
 
-I (Vedant) will lead the overall architecture and direction, but **everyone is welcome** to:
-- Suggest features
-- Open issues
-- Submit PRs
-- Join discussions
+**Quick ways to help**:
 
-**Ways to contribute:**
-1. Star the repo ⭐
-2. Join the Discord (link coming soon)
-3. Pick up an issue
-4. Share with doctors, dietitians, or patients who might benefit
+* Star the repo ⭐
+* Report bugs / suggest features
+* Share with dietitians, doctors, or patients
+* Improve documentation
 
-## Getting Started
+---
 
-```bash
-# Clone the repo
-git clone https://github.com/ivedantmistry/clinical-nutrition.git
+## License
+
+This project is licensed under the MIT License — feel free to use, modify, and deploy it.
+
+**Disclaimer**: This tool is not a substitute for professional medical advice. Always consult your doctor or dietitian.
+
+---
+
+Made with ❤️ by Vedant Mistry
