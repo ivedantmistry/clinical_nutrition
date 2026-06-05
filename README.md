@@ -37,7 +37,7 @@ Managing precise nutritional limits (potassium, sodium, phosphorus, protein, wat
 
 ## Project Status
 
-**Phase 1 (Current - June 2026)**: Core data models (inventory, meals, users) + nutrient calculation logic completed. Testing in progress.
+**Phase 1 (May 2026 - Present)**: Core data models (inventory, meals, users) + nutrient calculation logic completed. Testing in progress.
 
 See `inventory/models.py`, `meals/models.py`, and `core/` for backend foundation.
 
@@ -82,7 +82,7 @@ cp .env.template .env
 ### 5. Database Setup
 
 ```bash
-# Create a PostgreSQL database (or use SQLite by updating settings)
+# Create a PostgreSQL database and then run these commands
 python manage.py makemigrations
 python manage.py migrate
 ```
@@ -90,8 +90,7 @@ python manage.py migrate
 ### 6. Load Initial Nutrition Data (if available)
 
 ```bash
-# Example for master items
-python manage.py load_master_data   # (if you create this command later)
+python manage.py load_food_items
 ```
 
 ### 7. Create Superuser (for testing clinician side)
@@ -141,4 +140,4 @@ This project is licensed under the MIT License — feel free to use, modify, and
 
 ---
 
-Made with ❤️ by Vedant Mistry
+Made with ❤️ by [Vedant Mistry](https://vedantmistry.com)
