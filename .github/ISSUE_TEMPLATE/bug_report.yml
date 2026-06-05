@@ -1,0 +1,38 @@
+name: Bug Report
+description: Report a bug or issue
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clearly describe the bug
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Logs
+  - type: input
+    id: version
+    attributes:
+      label: Version / Environment
+      placeholder: "Backend v0.1 + Browser"
