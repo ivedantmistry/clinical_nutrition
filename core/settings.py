@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "meals",
     "rest_framework",
     "rest_framework_simplejwt",
+    "organizations",
 ]
 
 MIDDLEWARE = [
