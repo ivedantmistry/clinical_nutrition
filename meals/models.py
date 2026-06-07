@@ -5,6 +5,11 @@ from inventory.models import MasterItemInfo
 
 
 class Meal(models.Model):
+    organization = models.ForeignKey(
+        'organizations.Organization', 
+        on_delete=models.CASCADE,
+        related_name='meals'
+    )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50,blank=False)
     created_at = models.DateTimeField(auto_now_add=True)

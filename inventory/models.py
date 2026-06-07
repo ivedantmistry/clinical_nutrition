@@ -4,7 +4,16 @@ from django.conf import settings
 
 
 class Inventory(models.Model):
+
+    organization = models.ForeignKey(
+        "organizations.Organization",
+        on_delete=models.CASCADE,
+        related_name="inventories",
+    )
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Inventory for {self.user.username} at ({self.organization.name})"
 
 
 class MasterItemInfo(models.Model):
@@ -18,8 +27,13 @@ class MasterItemInfo(models.Model):
     quantity_g = models.FloatField(null=True)
     calories = models.FloatField(null=True)
 
+    def __str__(self):
+        return self.name
 
 class PantryItem(models.Model):
     inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE)
     master_item_info = models.ForeignKey(MasterItemInfo, on_delete=models.CASCADE)
     quantity_g = models.FloatField(null=True)
+
+    def __str__(self):
+        return f"{self.quantity_g}g of {self.master_item_info.name}"
