@@ -136,7 +136,15 @@ This is a **community-driven open source project**. Read our `CONTRIBUTING.md` a
 
 ## License
 
-This project is licensed under the MIT License — feel free to use, modify, and deploy it.
+The core of this project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.  
+This means you can self-host, modify, and distribute it freely — but if you run it as a network service,
+you must make your modifications available under the same license.
+
+**Patients using this software are never charged.** This is a founding principle of the project.
+Clinical teams and hospitals may use the self-hosted version at no cost, or subscribe to the
+hosted service at [vedantmistry.com] for managed infrastructure, support, and compliance.
+
+For commercial licensing inquiries: ivedantmistry@gmail.com
 
 **Disclaimer**: This tool is not a substitute for professional medical advice. Always consult your doctor or dietitian.
 
