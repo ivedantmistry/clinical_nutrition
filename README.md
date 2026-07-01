@@ -43,6 +43,9 @@ Managing precise nutritional limits (potassium, sodium, phosphorus, protein, wat
 
 See `inventory/models.py`, `meals/models.py`, and `core/` for backend foundation.
 
+## ER Diagram
+![ER Diagram](/assets/er_diagram.png)
+
 
 ## Roadmap
 
