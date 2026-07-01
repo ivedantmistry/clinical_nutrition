@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "organizations",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -137,5 +138,12 @@ AUTH_USER_MODEL = "users.CustomUser"
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Clinical Nutrition API',
+    'DESCRIPTION': 'Open source clinical nutrition tracking for patients with strict dietary constraints.',
+    'VERSION': '0.1.0',
 }
