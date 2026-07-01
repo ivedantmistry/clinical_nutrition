@@ -43,6 +43,49 @@ Managing precise nutritional limits (potassium, sodium, phosphorus, protein, wat
 
 See `inventory/models.py`, `meals/models.py`, and `core/` for backend foundation.
 
+
+## Roadmap
+
+> Milestone tracking lives in README.md until the project website is ready
+> at [clinicalnutritionproject.vercel.app](https://clinicalnutritionproject.vercel.app)
+
+### ✅ v0.1.0 — Foundation (complete)
+- Multi-tenant organization structure
+- Custom user model with JWT authentication
+- Virtual pantry management (MasterItemInfo + PantryItem)
+- BLS food database seeded (~500 items)
+- Meal creation with automatic pantry deduction
+- Nutrient calculation (potassium, sodium, protein, sugar, calories)
+
+### 🔄 v0.2.0 — Clinical constraints (in progress)
+- [ ] PatientConstraints model (daily limits set by clinician)
+- [ ] DailyNutritionLog (aggregate meals per day)
+- [ ] Daily summary endpoint (consumed vs limit per nutrient)
+- [ ] Overage alerts in API response
+- [ ] User registration endpoint
+
+### ⏳ v0.3.0 — Permissions + clinician dashboard API
+- [ ] Role-based access control (DOCTOR sees only their patients)
+- [ ] Clinician dashboard endpoints
+- [ ] Patient invite/onboarding flow
+- [ ] Organization management endpoints
+
+### ⏳ v0.4.0 — Self-hosting ready
+- [ ] Docker + docker-compose setup
+- [ ] Environment variable documentation
+- [ ] API documentation (Swagger/OpenAPI)
+- [ ] Basic test coverage
+
+### ⏳ v0.5.0 — Frontend
+- [ ] Next.js patient interface
+- [ ] Clinician dashboard UI
+- [ ] Mobile-responsive design
+
+### ⏳ v1.0.0 — Production ready
+- [ ] Full test coverage
+- [ ] GDPR compliance documentation
+- [ ] Hosted service launch
+
 ---
 
 ## Getting Started (Local Development)
